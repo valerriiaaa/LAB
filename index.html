@@ -5,31 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="IS-32 Valeriia Temko">
     <link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.V003F6MfbMSyE23H_MIN4wHaHa?rs=1&pid=ImgDetMain" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <title>Головна сторінка</title>
-
     <style>
-        body {
-            background-color:rgb(127, 160, 193) ;
-        }
         a {
-            color: darkblue;
-            text-decoration: none;
+            color: red !important;
         }
-        h1,h2,h3 { 
-            color: aliceblue;
-            text-align: center;
-        }
-
-        p {
-            color: aliceblue;
-            font-size: 16px;
-        }
-     
     </style>
-
 </head>
 <body>
-    <marquee behavior="scroll" direction="left" scrollamount="5" style="background-color: darkblue; color: white; padding: 10px; font-size: 18px;">
+    <marquee id="banner" behavior="scroll" direction="left" scrollamount="5">
         📚 Ласкаво просимо до світу книг! Знаходьте нові романи, читайте відгуки та дізнавайтесь більше про улюблених авторів!
     </marquee>
     
@@ -45,7 +30,7 @@
         </ul>
     
     </nav>
-    <img src="images/books.jpg" alt="Books"  width="600" height="400" align="left" style="margin: 15px;">
+    <img class="index-books" src="images/books.jpg" alt="Books" >
    
     <h3>📖 Огляди книг</h3>
     <p>Ця сторінка містить рецензії та аналіз найпопулярніших романів. Ви зможете дізнатися думки критиків та читачів про різні твори.</p>

@@ -1,0 +1,93 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+    color: aliceblue;
+    line-height: 1.6;
+    background-color: rgb(127, 160, 193);
+}
+
+h1, h2, h3 {
+    color: aliceblue;
+    text-align: center;
+}
+
+#banner {
+    background-color: darkblue; 
+    color: white; 
+    padding: 10px; 
+    font-size: 18px;
+}
+p {
+    text-align: justify;
+}
+
+a {
+    color: #008000;
+    text-decoration: underline;
+}
+
+.autors {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+.autors th, .autors td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    color:black;
+}
+
+.autors th {
+    background-color: darkblue;
+    color: white;
+}
+
+.books {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+
+.books th, .books td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    color:black;
+}
+
+.books th {
+    background-color: darkblue;
+    color: white;
+}
+
+img {
+    width: 120px;
+    height: 150px;
+
+    object-fit: cover;
+}
+
+.index-books {
+    width: 600px;
+    height: 400px;
+    margin: 15px auto;
+}
+
+dl {
+    background-color: aliceblue;
+    color: black;
+}
+
+li {
+    color: aliceblue;
+    font-size: 18px;
+}
+
+ul {
+    list-style-type: square;
+}
