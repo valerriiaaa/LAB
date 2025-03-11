@@ -91,3 +91,40 @@ li {
 ul {
     list-style-type: square;
 }
+/* 1. Контекстні (спадкові) селектори */
+nav ul li a {
+    color: darkred;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: darkblue;
+    text-decoration: none;
+}
+/* 2. Дочірні селектори (>) */
+nav > ul {
+    background-color: #ddeeff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.autors > tbody > tr > td {
+    font-size: 17px;
+    font-style: italic;
+    text-decoration: underline;
+}
+/* 3. Сусідні селектори (+) */
+h1 + hr {
+    border: 2px solid white;
+    margin-bottom: 20px;
+}
+
+h3 + ol {
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
