@@ -1,13 +1,12 @@
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 16px;
-    color: aliceblue;
     line-height: 1.6;
     background-color: rgb(127, 160, 193);
 }
 
 h1, h2, h3 {
-    color: aliceblue;
+    color: rgb(0, 2, 4);
     text-align: center;
 }
 
@@ -17,13 +16,17 @@ h1, h2, h3 {
     padding: 10px; 
     font-size: 18px;
 }
-p {
-    text-align: justify;
-}
 
 a {
     color: #008000;
     text-decoration: underline;
+}
+
+img {
+    width: 120px;
+    height: 150px;
+
+    object-fit: cover;
 }
 
 .autors {
@@ -65,60 +68,18 @@ a {
     color: white;
 }
 
-img {
-    width: 120px;
-    height: 150px;
-
-    object-fit: cover;
-}
-
-.index-books {
-    width: 600px;
-    height: 400px;
-    margin: 15px auto;
-}
-
 dl {
     background-color: aliceblue;
     color: black;
 }
 
-li {
-    color: aliceblue;
-    font-size: 18px;
-}
-
 ul {
-    list-style-type: square;
-}
-/* 1. Контекстні (спадкові) селектори */
-nav ul li a {
-    color: darkred;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: color 0.3s ease-in-out;
+    list-style-type: none;
 }
 
-nav ul li a:hover {
-    color: darkblue;
-    text-decoration: none;
-}
-/* 2. Дочірні селектори (>) */
-nav > ul {
-    background-color: #ddeeff;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.autors > tbody > tr > td {
-    font-size: 17px;
-    font-style: italic;
-    text-decoration: underline;
-}
-/* 3. Сусідні селектори (+) */
+/* Сусідні селектори */
 h1 + hr {
-    border: 2px solid white;
+    border: 2px solid rgb(127, 160, 193);
     margin-bottom: 20px;
 }
 
@@ -127,4 +88,145 @@ h3 + ol {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: aliceblue;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.navbar ul li {
+    margin: 0 15px;
+}
+.navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+.navbar ul li a:hover {
+    text-decoration: underline;
+    color:darkgray
+}
+
+.autors > tbody > tr > td {
+    font-size: 17px;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.book-card {
+    width: 40%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px;
+    float: left;
+    background-color: rgb(217, 227, 236);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.book-card img {
+    width: 55%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+.book-card:before {
+    content: "📖 ";
+    font-size: 20px;
+}
+
+.book-card p, h3 {
+    color:black;
+}
+
+.book-card a:link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: blue;
+    text-decoration: none;
+}
+.book-card a:hover {
+    text-decoration:underline;
+    color:rgb(75, 122, 193);
+}
+
+.book-card a:visited {
+    color:blueviolet;
+}
+
+.book-card a:active {
+    color:#008000
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: aliceblue;
+    text-align: center;
+}
+
+.container p {
+    color: black;
+}
+
+.container dl {
+   text-align: left;
+}
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.index-books {
+    width: 40%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.announcement {
+    width: 50%;
+    background: rgb(95, 139, 178);
+    padding: 14px;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+    left: 250px;
+
+}
+
+.announcement-text {
+    font-style: italic;
+    color: darkred;
+
+}
+
+.section:first-child {
+    border-top: 3px solid #333;
+    padding-top: 10px;
+}
+
+h1::before {
+    content: "📚 ";
+}
+h1::after {
+    content: " 📖";
 }
