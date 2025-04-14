@@ -17,11 +17,6 @@ h1, h2, h3 {
     font-size: 18px;
 }
 
-a {
-    color: #008000;
-    text-decoration: underline;
-}
-
 img {
     width: 120px;
     height: 150px;
@@ -91,7 +86,6 @@ h3 + ol {
 }
 
 .navbar {
-    background-color: aliceblue;
     padding: 10px;
     text-align: center;
     margin: 0;
@@ -154,9 +148,6 @@ h3 + ol {
 }
 
 .book-card a:link {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
     color: blue;
     text-decoration: none;
 }
@@ -165,12 +156,12 @@ h3 + ol {
     color:rgb(75, 122, 193);
 }
 
-.book-card a:visited {
-    color:blueviolet;
-}
-
 .book-card a:active {
     color:#008000
+}
+
+.book-card a:visited {
+    color:rgb(184, 36, 36);
 }
 
 .container {
@@ -216,6 +207,7 @@ h3 + ol {
 .announcement-text {
     font-style: italic;
     color: darkred;
+    font-size: 20px;
 
 }
 
