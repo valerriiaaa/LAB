@@ -222,3 +222,53 @@ h1::before {
 h1::after {
     content: " 📖";
 }
+
+.toggleDescriptionBtn {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggleDescriptionBtn:hover {
+    background-color: navy;
+  }
+
+  li.active {
+    background-color: rgb(127, 160, 193);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.menu button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.like-button {
+    background-color: #4CAF50; 
+}
+
+.like-button:hover {
+    background-color: #45a049;
+}
+
+.dislike-button {
+    background-color: #f44336; 
+}
+
+.dislike-button:hover {
+    background-color: #d32f2f;
+}
+

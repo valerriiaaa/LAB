@@ -93,7 +93,7 @@ function manipulateDOM() {
 function highlightLinks() {
 
     const links = document.querySelectorAll(".section a");
-
+    console.log(links);
     links.forEach(link => {
         link.style.backgroundColor = "#87CEFA"; 
         link.style.border = "1px solid rgb(13, 63, 170)";
@@ -103,6 +103,10 @@ function highlightLinks() {
 
 }
 
+function writeWelcomeMessage() {
+    document.write("<p style='color: white; font-weight: bold;'>📅 Сьогодні: " + new Date().toLocaleDateString("uk-UA") + "</p>");
+}
+
 //userDialog();
 //showDeveloperInfo("Темко", "Валерія");
 //compareStrings();
@@ -110,3 +114,78 @@ function highlightLinks() {
 //redirectAfterDelay();
 //manipulateDOM();
 //highlightLinks();
+writeWelcomeMessage();
+
+// 1. Обробник події через атрибут
+function highlightRow(el) {
+    el.style.backgroundColor = "#7aa8ed";
+}
+
+// 2. Обробник через властивість
+const heading = document.querySelector('h1');
+
+    heading.onmouseover = function() {
+        heading.style.fontSize = "42px";
+    };
+
+    heading.onmouseout = function() {
+        heading.style.fontSize = "36px";
+    };
+
+// 3. Метод addEventListener: кілька обробників до однієї події
+const buttons = document.querySelectorAll('.toggleDescriptionBtn');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const description = button.nextElementSibling; // <p> йде одразу після <button>
+
+      if (description.style.display === 'none') {
+        description.style.display = 'block';
+        button.textContent = 'Сховати опис';
+      } else {
+        description.style.display = 'none';
+        button.textContent = 'Показати опис книги';
+      }
+    });
+  });
+
+// 4. Обробник події як об'єкт з handleEvent
+const bookClickHandler = {
+    handleEvent(event) {
+        alert("Ви натиснули на книгу: " + event.currentTarget.innerText.trim());
+        event.currentTarget.removeEventListener("click", bookClickHandler);
+    }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const bookLinks = document.querySelectorAll("td:nth-child(2) a"); // Вибір другого стовпця - назви книг
+    bookLinks.forEach(link => {
+        link.addEventListener("click", bookClickHandler);
+    });
+});
+
+// 5. Підсвічування елементів списку <ul>
+document.querySelector("#list-reviews").onclick = function(event) {
+    if (event.target.tagName === "LI") {
+        // Знімаємо попередню активність
+        document.querySelectorAll("ul li").forEach(li => li.classList.remove("active"));
+        // Додаємо активність до натиснутого елемента
+        event.target.classList.add("active");
+    }
+};
+
+
+document.querySelector(".menu").onclick = function(event) {
+    const button = event.target.closest("button");
+    if (!button) return;
+
+    const action = button.dataset.action;
+    if (!action) return;
+
+    const countSpan = button.querySelector(".count");
+    let count = parseInt(button.getAttribute("data-count"), 10) || 0;
+
+    count++;
+    button.setAttribute("data-count", count);
+    countSpan.textContent = count;
+};
