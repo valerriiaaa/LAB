@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Drag Books</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #e6f0fa;
+      padding: 20px;
+      position: relative;
+    }
+    .dropzone {
+      width: 300px;
+      height: 300px;
+      border: 2px dashed #aaa;
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
+    .draggable {
+      width: 120px;
+      padding: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: grab;
+      position: relative;
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+    }
+    .draggable img {
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Перетягніть книги до відповідного блоку:</h2>
+<div class="dropzone" id="liked">Сподобалося</div>
+<div class="dropzone" id="disliked">Не сподобалося</div>
+
+<div id="book-container">
+  <div class="draggable"><img src="images/alisa.jpg"><p>Аліса</p></div>
+  <div class="draggable"><img src="images/1984.jpg"><p>1984</p></div>
+  <div class="draggable"><img src="images/lord rings.jpg"><p>Володар перснів</p></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  let dragged = null;
+  let offsetX = 0, offsetY = 0;
+
+  document.querySelectorAll('.draggable').forEach(item => {
+    item.addEventListener('mousedown', function (e) {
+      dragged = this;
+      const rect = this.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+
+      this.style.position = 'absolute';
+      this.style.zIndex = 1000;
+      document.body.appendChild(this);
+      moveAt(e.pageX, e.pageY);
+    });
+
+    function moveAt(x, y) {
+      if (dragged) {
+        dragged.style.left = (x - offsetX) + 'px';
+        dragged.style.top = (y - offsetY) + 'px';
+      }
+    }
+
+    document.addEventListener('mousemove', function (e) {
+      if (dragged) moveAt(e.pageX, e.pageY);
+    });
+
+    document.addEventListener('mouseup', function (e) {
+      if (dragged) {
+        let dropped = false;
+        document.querySelectorAll('.dropzone').forEach(zone => {
+          const r = zone.getBoundingClientRect();
+          if (e.clientX > r.left && e.clientX < r.right &&
+              e.clientY > r.top && e.clientY < r.bottom) {
+            zone.appendChild(dragged);
+            dragged.style.position = 'static';
+            dragged.style.left = '';
+            dragged.style.top = '';
+            dropped = true;
+          }
+        });
+
+        if (!dropped) {
+          document.getElementById('book-container').appendChild(dragged);
+          dragged.style.position = 'static';
+          dragged.style.left = '';
+          dragged.style.top = '';
+        }
+
+        dragged = null;
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
